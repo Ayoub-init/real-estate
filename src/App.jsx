@@ -55,10 +55,12 @@ function IndexPage() {
 }
 
 import Layout from './components/layout/Layout';
+import SplashScreen from './components/SplashScreen';
 
 export default function App() {
   return (
     <Router>
+      <SplashScreen>
       <Routes>
         <Route element={<Layout />}>
             <Route path="/" element={<Home />} />
@@ -80,6 +82,7 @@ export default function App() {
             <Route path="/index" element={<IndexPage />} />
         </Route>
       </Routes>
+      </SplashScreen>
     </Router>
   );
 }
