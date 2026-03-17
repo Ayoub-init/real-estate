@@ -24,10 +24,17 @@ export default function Home() {
     <div className="relative flex flex-col overflow-x-hidden bg-background-light dark:bg-background-dark font-display text-slate-900 dark:text-slate-100">
       <main className="flex-1">
         {/* Hero Section */}
-        <section className="relative h-[600px] w-full flex items-center justify-center px-6">
+        <section className="relative h-[600px] w-full flex items-center justify-center px-6 overflow-hidden">
           <div className="absolute inset-0 z-0">
             <div className="absolute inset-0 bg-slate-900/40 z-10" />
-            <img alt="Modern luxury villa with pool at sunset" className="h-full w-full object-cover" src="https://lh3.googleusercontent.com/aida-public/AB6AXuB5zeXYdQuPjL247OYAwxP9RWCnbcbCJ5u3oweGIRsA1uBUAgjgQgzQJR-silJ9E6FUxK7NX8x--EL7TR_EKav4usgK8Cg6pafk7r5UKcP826YKsoaaUfhmyVSgXrtbD0Rq-kOD9SNIGRnb0dLi-gaZv_e9HGoyzmHJxzfl6VFW0YhhjeE_zxHTNRCeiE46Rk3bIcjm8oOpW87RnxxN7UMawk3fkiqeKluJsQzrmWe-N5vhKqLS_lRWxne5zFKLMT5jFh6-iLobHUE" />
+            <video
+              autoPlay
+              loop
+              muted
+              playsInline
+              className="absolute inset-0 w-full h-full object-cover"
+              src="https://videos.pexels.com/video-files/3241031/3241031-uhd_2560_1440_25fps.mp4"
+            />
           </div>
           <div className="relative z-20 w-full max-w-4xl text-center flex flex-col items-center gap-8">
             <div className="space-y-4">
