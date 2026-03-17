@@ -35,9 +35,9 @@ const propertiesSlice = createSlice({
 
 function filterProperties(properties, query, filters) {
     return properties.filter(prop => {
-        const matchesQuery = prop.title.toLowerCase().includes(query.toLowerCase()) ||
+        const matchesQuery = prop.title.toLowerCase().includes(query.toLowerCase()) || 
                              prop.location.toLowerCase().includes(query.toLowerCase());
-
+        
         let matchesType = true;
         if (filters.type !== 'Any' && filters.type !== 'Property Type') {
             matchesType = prop.type === filters.type;
@@ -49,7 +49,7 @@ function filterProperties(properties, query, filters) {
              else if (filters.priceRange === '$300k - $600k') matchesPrice = prop.price > 300000 && prop.price <= 600000;
              else if (filters.priceRange === '$600k+') matchesPrice = prop.price > 600000;
         }
-
+        
         return matchesQuery && matchesType && matchesPrice;
     });
 }

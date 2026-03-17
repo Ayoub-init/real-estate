@@ -27,10 +27,10 @@ export default function Home() {
         <section className="relative h-[600px] w-full flex items-center justify-center px-6 overflow-hidden">
           <div className="absolute inset-0 z-0">
             <div className="absolute inset-0 bg-slate-900/40 z-10" />
-            <video
-              autoPlay
-              loop
-              muted
+            <video 
+              autoPlay 
+              loop 
+              muted 
               playsInline
               className="absolute inset-0 w-full h-full object-cover"
               src="https://videos.pexels.com/video-files/3241031/3241031-uhd_2560_1440_25fps.mp4"
