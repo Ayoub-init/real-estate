@@ -1,36 +1,36 @@
 import React from 'react';
+import { useParams, Link } from 'react-router-dom';
+import { useSelector, useDispatch } from 'react-redux';
+import { toggleFavorite } from '../store/slices/favoritesSlice';
 
 export default function PropertyDetails() {
+    const { id } = useParams();
+    const { properties } = useSelector(state => state.properties);
+    const { favorites } = useSelector(state => state.favorites);
+    const dispatch = useDispatch();
+
+    const property = properties.find(p => p.id === id) || properties[0];
+
+    const similarProperties = properties.filter(p => p.id !== property.id).slice(0, 3);
+
   return (
-    <div className="relative flex min-h-screen w-full flex-col overflow-x-hidden bg-background-light dark:bg-background-dark font-display text-slate-900 dark:text-slate-100">
-      {/* Top Navigation */}
-      <header className="sticky top-0 z-50 w-full border-b border-slate-200 dark:border-slate-800 bg-white/80 dark:bg-background-dark/80 backdrop-blur-md px-4 md:px-10 lg:px-40 py-3">
-        <div className="flex items-center justify-between">
-          <div className="flex items-center gap-4">
-            <div className="text-primary">
-              <span className="material-symbols-outlined text-3xl">domain</span>
-            </div>
-            <h2 className="text-slate-900 dark:text-slate-100 text-lg font-bold leading-tight tracking-tight">Estately</h2>
+    <div className="bg-background-light dark:bg-background-dark font-display text-slate-900 dark:text-slate-100">
+      <div className="relative flex w-full flex-col overflow-x-hidden">
+        <main className="mx-auto w-full max-w-[1280px] px-4 md:px-10 lg:px-20 py-8">
+          <div className="flex justify-between items-center mb-4">
+              <Link to="/search" className="flex items-center text-primary hover:underline text-sm font-semibold">
+                  <span className="material-symbols-outlined text-lg mr-1">arrow_back</span>
+                  Back to Search
+              </Link>
+              <div className="flex gap-2">
+                 <button onClick={() => dispatch(toggleFavorite(property.id))} className={`flex items-center justify-center rounded-lg h-10 w-10 bg-slate-100 dark:bg-slate-800 transition-colors ${favorites.includes(property.id) ? 'text-red-500' : 'text-slate-700 dark:text-slate-300 hover:text-red-500'}`}>
+                      <span className="material-symbols-outlined">favorite</span>
+                  </button>
+                  <button className="flex items-center justify-center rounded-lg h-10 w-10 bg-slate-100 dark:bg-slate-800 text-slate-700 dark:text-slate-300 hover:text-primary transition-colors">
+                      <span className="material-symbols-outlined">share</span>
+                  </button>
+              </div>
           </div>
-          <nav className="hidden md:flex flex-1 justify-center gap-8">
-            <a className="text-slate-700 dark:text-slate-300 text-sm font-medium hover:text-primary transition-colors" href="#">Home</a>
-            <a className="text-primary text-sm font-bold" href="#">Listings</a>
-            <a className="text-slate-700 dark:text-slate-300 text-sm font-medium hover:text-primary transition-colors" href="#">About</a>
-          </nav>
-          <div className="flex items-center gap-4">
-            <button className="flex items-center justify-center rounded-lg h-10 w-10 bg-slate-100 dark:bg-slate-800 text-slate-700 dark:text-slate-300 hover:text-primary transition-colors">
-              <span className="material-symbols-outlined">favorite</span>
-            </button>
-            <button className="flex items-center justify-center rounded-lg h-10 w-10 bg-slate-100 dark:bg-slate-800 text-slate-700 dark:text-slate-300 hover:text-primary transition-colors">
-              <span className="material-symbols-outlined">share</span>
-            </button>
-            <div className="bg-slate-200 dark:bg-slate-700 rounded-full h-10 w-10 overflow-hidden">
-              <img className="h-full w-full object-cover" data-alt="User profile picture" src="https://lh3.googleusercontent.com/aida-public/AB6AXuAjoQfW3L7fTvsLMIyXB4AbgAFkOFjps4lIqEOSV-gKFf-pwHjYA0DL4P8CEYutixo3cUsLFsJAxbDqQrAoMSUD99ThGVoJstf4MSPt94_qBmPkzJzgHrwOW6NgwN6704XsTDU93Nin4B2skSEyKIvcP1fSi8gj4aQxF8OMx01-hAmtWm9MRRfAPTB3bD2hAXE_5-n-nqNqEgugOWi5bRPSkwGlRuIe8rhacKoilYYOR3X9EtisnxnrkN0bLDMKmZ9YMLyQwsYCKWc" />
-            </div>
-          </div>
-        </div>
-      </header>
-      <main className="mx-auto w-full max-w-[1280px] px-4 md:px-10 lg:px-20 py-8">
         {/* Hero Gallery Section */}
         <div className="grid grid-cols-1 md:grid-cols-4 grid-rows-2 gap-4 h-[400px] md:h-[600px] mb-8 overflow-hidden rounded-xl">
           <div className="md:col-span-2 md:row-span-2 relative group overflow-hidden">
@@ -60,15 +60,15 @@ export default function PropertyDetails() {
             <div>
               <div className="flex flex-wrap justify-between items-start gap-4 mb-4">
                 <div className="flex-1">
-                  <h1 className="text-3xl md:text-4xl font-black text-slate-900 dark:text-slate-100 tracking-tight mb-2">Modern Waterfront Villa</h1>
+                    <h1 className="text-3xl md:text-4xl font-black text-slate-900 dark:text-slate-100 tracking-tight mb-2">{property.title}</h1>
                   <div className="flex items-center text-slate-600 dark:text-slate-400 gap-1">
                     <span className="material-symbols-outlined text-sm">location_on</span>
-                    <p className="text-base">123 Ocean Drive, Miami, FL 33139</p>
+                      <p className="text-base">{property.location}</p>
                   </div>
                 </div>
                 <div className="bg-primary/10 text-primary px-6 py-4 rounded-xl">
                   <p className="text-sm font-bold uppercase tracking-wider mb-1">Price</p>
-                  <p className="text-3xl font-black">$2,500,000</p>
+                    <p className="text-3xl font-black">${property.price.toLocaleString()}</p>
                 </div>
               </div>
               {/* Key Specs */}
@@ -79,7 +79,7 @@ export default function PropertyDetails() {
                   </div>
                   <div>
                     <p className="text-xs text-slate-500 uppercase font-bold">Bedrooms</p>
-                    <p className="text-lg font-bold">5</p>
+                      <p className="text-lg font-bold">{property.beds}</p>
                   </div>
                 </div>
                 <div className="flex items-center gap-3">
@@ -88,7 +88,7 @@ export default function PropertyDetails() {
                   </div>
                   <div>
                     <p className="text-xs text-slate-500 uppercase font-bold">Bathrooms</p>
-                    <p className="text-lg font-bold">4.5</p>
+                      <p className="text-lg font-bold">{property.baths}</p>
                   </div>
                 </div>
                 <div className="flex items-center gap-3">
@@ -97,7 +97,7 @@ export default function PropertyDetails() {
                   </div>
                   <div>
                     <p className="text-xs text-slate-500 uppercase font-bold">Living Area</p>
-                    <p className="text-lg font-bold">3,200 sqft</p>
+                      <p className="text-lg font-bold">{property.sqft.toLocaleString()} sqft</p>
                   </div>
                 </div>
                 <div className="flex items-center gap-3">
@@ -115,9 +115,9 @@ export default function PropertyDetails() {
             <section>
               <h3 className="text-2xl font-bold text-slate-900 dark:text-slate-100 mb-4">About this property</h3>
               <p className="text-slate-600 dark:text-slate-400 leading-relaxed">
-                Experience the pinnacle of luxury living in this stunning modern waterfront villa located in the heart of Miami's prestigious Ocean Drive. This architectural masterpiece boasts floor-to-ceiling glass walls that frame breathtaking ocean views from every room. The open-concept living area flows seamlessly into a professional-grade chef's kitchen, perfect for entertaining.
+                  Experience the pinnacle of luxury living in this stunning property located in {property.location}. This architectural masterpiece boasts floor-to-ceiling glass walls that frame breathtaking views from every room. The open-concept living area flows seamlessly into a professional-grade chef's kitchen, perfect for entertaining.
                 <br /><br />
-                The primary suite is a true sanctuary, featuring a private balcony, a spa-like ensuite bathroom with a freestanding soaking tub, and custom walk-in closets. Outside, the expansive deck offers a heated infinity pool, an outdoor kitchen, and private dockage for your yacht.
+                  The primary suite is a true sanctuary, featuring a private balcony, a spa-like ensuite bathroom with a freestanding soaking tub, and custom walk-in closets.
               </p>
             </section>
             {/* Features/Amenities */}
@@ -200,66 +200,29 @@ export default function PropertyDetails() {
             <div>
               <h3 className="text-xl font-bold mb-6 text-slate-900 dark:text-slate-100">Similar Properties</h3>
               <div className="space-y-4">
-                {/* Property Card 1 */}
-                <div className="flex gap-4 group cursor-pointer">
-                  <div className="size-20 rounded-lg overflow-hidden flex-shrink-0">
-                    <img className="w-full h-full object-cover group-hover:scale-110 transition-transform" data-alt="Similar modern house thumbnail" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDRlgLmtvs1RtWH7BKn5Y_NEmUNd1SO8J4as5d2LAio2bpYlOgrZx5ra3ORKdHc53uHPj5TsCvSmCm9HCf52jU1KMR6q06GlUmsYAmAeCUOqLEWldqODKjms1G195tyksSV1HE2bVV9Sbs4EXcO7fTyaHUyjLDKEfVi09Z7_lXNn2OBaAOJZMIM6QIDnYH7IfjpwtUjhdPjkT18Ef7WcHs6dutyz3RxCOleuIqLFafdbEY2WCJ2dugYKJoR0nJLtRduEC9gs2IzYwI" />
-                  </div>
-                  <div className="flex flex-col justify-center">
-                    <h4 className="font-bold text-slate-900 dark:text-slate-100 line-clamp-1 group-hover:text-primary transition-colors">Sunset Luxury Estate</h4>
-                    <p className="text-sm text-slate-500">Boca Raton, FL</p>
-                    <p className="text-primary font-bold mt-1">$1,850,000</p>
-                  </div>
-                </div>
-                {/* Property Card 2 */}
-                <div className="flex gap-4 group cursor-pointer">
-                  <div className="size-20 rounded-lg overflow-hidden flex-shrink-0">
-                    <img className="w-full h-full object-cover group-hover:scale-110 transition-transform" data-alt="Luxury villa thumbnail" src="https://lh3.googleusercontent.com/aida-public/AB6AXuAG9tEqPy6DYzL5Yn2q14ywKwoGhh115KJiO0RL8D22r3ggTMayiDcxPuyo877KXMBKV_3UZQj7yf1Gv9jiPZZw6J6fuHyucU041OVexkVbB9JLFL80h4PwZ9RhT2OeVoFJlF2KF9szhmDlWKPd7Vl7oiN-pv11Tw71H6gTdyLtTMsiSvt43al90AgltyE73N-lVR2onjKCUcBI1hMCIHGjbcmpwlC7IdYvOwa9SyOHg6kNG4aPUIZVLIwVHCTRTfeiAlZBDg7qXG8" />
-                  </div>
-                  <div className="flex flex-col justify-center">
-                    <h4 className="font-bold text-slate-900 dark:text-slate-100 line-clamp-1 group-hover:text-primary transition-colors">Coastal Retreat Villa</h4>
-                    <p className="text-sm text-slate-500">Coral Gables, FL</p>
-                    <p className="text-primary font-bold mt-1">$2,100,000</p>
-                  </div>
-                </div>
-                {/* Property Card 3 */}
-                <div className="flex gap-4 group cursor-pointer">
-                  <div className="size-20 rounded-lg overflow-hidden flex-shrink-0">
-                    <img className="w-full h-full object-cover group-hover:scale-110 transition-transform" data-alt="Modern penthouse thumbnail" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCYYmZv2pCBIphreSbL3LWipnkKdc8en1dhEkRK5Ga-fn8UwYWJpgfJ8cMBvG9xOpaeIZ4IozpsoZOCp2IuIWnkwhQxysDXPXGP4qTHx_mzo3QPOi0E2xhObVgJHPXKXhvAuWAAMGicjCeOQNJLBcRtQR9DYupKP_71EvaAS-7uIK39m7L4P9JdKveP_QEdvkW-o557kSOz6OnuBJ_Rw_wsPmTv8TXcJoiR9qO5q2g5HSMC7JpaKBjZC4KkxZz6dIMRMB0MLDpRkbI" />
-                  </div>
-                  <div className="flex flex-col justify-center">
-                    <h4 className="font-bold text-slate-900 dark:text-slate-100 line-clamp-1 group-hover:text-primary transition-colors">Azure Bay Mansion</h4>
-                    <p className="text-sm text-slate-500">Miami Beach, FL</p>
-                    <p className="text-primary font-bold mt-1">$3,450,000</p>
-                  </div>
-                </div>
+                  {similarProperties.map((prop) => (
+                      <Link to={`/property/${prop.id}`} key={prop.id} className="flex gap-4 group cursor-pointer">
+                          <div className="size-20 rounded-lg overflow-hidden flex-shrink-0">
+                              <img alt={prop.title} className="w-full h-full object-cover group-hover:scale-110 transition-transform" src={prop.imageUrl} />
+                          </div>
+                          <div className="flex flex-col justify-center">
+                              <h4 className="font-bold text-slate-900 dark:text-slate-100 line-clamp-1 group-hover:text-primary transition-colors">{prop.title}</h4>
+                              <p className="text-sm text-slate-500">{prop.location}</p>
+                              <p className="text-primary font-bold mt-1">${prop.price.toLocaleString()}</p>
+                          </div>
+                      </Link>
+                  ))}
               </div>
-              <button className="w-full mt-6 py-3 border border-slate-200 dark:border-slate-800 rounded-lg text-sm font-bold hover:bg-slate-50 dark:hover:bg-slate-800 transition-colors">
-                View All Listings
-              </button>
+              <Link to="/search">
+                  <button className="w-full mt-6 py-3 border border-slate-200 dark:border-slate-800 rounded-lg text-sm font-bold hover:bg-slate-50 dark:hover:bg-slate-800 transition-colors">
+                      View All Listings
+                  </button>
+              </Link>
             </div>
           </div>
         </div>
       </main>
-      <footer className="bg-white dark:bg-background-dark border-t border-slate-200 dark:border-slate-800 mt-20 py-12 px-10 md:px-40">
-        <div className="flex flex-col md:flex-row justify-between items-center gap-8">
-          <div className="flex items-center gap-3">
-            <div className="text-primary">
-              <span className="material-symbols-outlined text-3xl">domain</span>
-            </div>
-            <span className="text-xl font-black">Estately</span>
-          </div>
-          <div className="flex gap-8 text-sm text-slate-500 dark:text-slate-400">
-            <a className="hover:text-primary transition-colors" href="#">Terms</a>
-            <a className="hover:text-primary transition-colors" href="#">Privacy</a>
-            <a className="hover:text-primary transition-colors" href="#">Contact</a>
-            <a className="hover:text-primary transition-colors" href="#">Newsletter</a>
-          </div>
-          <div className="text-sm text-slate-400">
-            © 2024 Estately Real Estate Inc.
-          </div>
-        </div>
-      </footer>
+      </div>
     </div>
   );
 }

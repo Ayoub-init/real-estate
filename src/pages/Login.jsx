@@ -1,6 +1,18 @@
 import React from 'react';
+import { useDispatch } from 'react-redux';
+import { useNavigate, Link } from 'react-router-dom';
+import { login } from '../store/slices/authSlice';
 
 export default function Login() {
+    const dispatch = useDispatch();
+    const navigate = useNavigate();
+
+    const handleSubmit = (e) => {
+        e.preventDefault();
+        dispatch(login());
+        navigate('/dashboard');
+    };
+
   return (
     <div className="relative flex h-screen w-full overflow-hidden bg-background-light dark:bg-background-dark font-display text-slate-900 dark:text-slate-100">
       {/* Left Side: Image */}
@@ -21,19 +33,19 @@ export default function Login() {
       <div className="w-full lg:w-1/2 flex flex-col justify-center px-8 sm:px-16 lg:px-24 bg-white dark:bg-background-dark">
         <div className="max-w-md w-full mx-auto">
           {/* Mobile Header */}
-          <div className="lg:hidden flex items-center gap-2 mb-10 text-primary">
+            <Link to="/" className="lg:hidden flex items-center gap-2 mb-10 text-primary">
             <span className="material-symbols-outlined text-3xl">domain</span>
             <h1 className="text-2xl font-bold">EstateHub</h1>
-          </div>
+            </Link>
           <div className="mb-10">
             <h2 className="text-3xl font-extrabold tracking-tight mb-2">Welcome Back</h2>
             <p className="text-slate-500 dark:text-slate-400">Please enter your details to sign in to your account.</p>
           </div>
-          <form className="space-y-6">
+            <form className="space-y-6" onSubmit={handleSubmit}>
             <div>
               <label className="block text-sm font-semibold mb-2" htmlFor="email">Email Address</label>
               <div className="relative">
-                <input className="w-full h-12 px-4 rounded-lg border border-slate-200 dark:border-slate-700 bg-white dark:bg-slate-800 focus:border-primary focus:ring-2 focus:ring-primary/20 outline-none transition-all placeholder:text-slate-400" id="email" placeholder="name@example.com" type="email" />
+                  <input className="w-full h-12 px-4 rounded-lg border border-slate-200 dark:border-slate-700 bg-white dark:bg-slate-800 focus:border-primary focus:ring-2 focus:ring-primary/20 outline-none transition-all placeholder:text-slate-400" id="email" placeholder="name@example.com" type="email" required defaultValue="test@example.com" />
               </div>
             </div>
             <div>
@@ -42,7 +54,7 @@ export default function Login() {
                 <a className="text-xs font-bold text-primary hover:underline" href="#">Forgot password?</a>
               </div>
               <div className="relative group">
-                <input className="w-full h-12 px-4 rounded-lg border border-slate-200 dark:border-slate-700 bg-white dark:bg-slate-800 focus:border-primary focus:ring-2 focus:ring-primary/20 outline-none transition-all placeholder:text-slate-400" id="password" placeholder="••••••••" type="password" />
+                  <input className="w-full h-12 px-4 rounded-lg border border-slate-200 dark:border-slate-700 bg-white dark:bg-slate-800 focus:border-primary focus:ring-2 focus:ring-primary/20 outline-none transition-all placeholder:text-slate-400" id="password" placeholder="••••••••" type="password" required defaultValue="password123" />
                 <button className="absolute right-3 top-1/2 -translate-y-1/2 text-slate-400 hover:text-slate-600 dark:hover:text-slate-200" type="button">
                   <span className="material-symbols-outlined text-xl">visibility</span>
                 </button>
@@ -81,14 +93,14 @@ export default function Login() {
           </form>
           <p className="mt-10 text-center text-sm text-slate-600 dark:text-slate-400">
             Don't have an account?
-            <a className="font-bold text-primary hover:underline ml-1" href="#">Sign up for free</a>
+              <Link to="/register" className="font-bold text-primary hover:underline ml-1">Sign up for free</Link>
           </p>
         </div>
         {/* Footer links */}
         <div className="mt-auto pt-10 flex justify-center gap-6 text-xs text-slate-400 pb-8">
+            <Link to="/" className="hover:text-slate-600 dark:hover:text-slate-200">Home</Link>
           <a className="hover:text-slate-600 dark:hover:text-slate-200" href="#">Privacy Policy</a>
           <a className="hover:text-slate-600 dark:hover:text-slate-200" href="#">Terms of Service</a>
-          <a className="hover:text-slate-600 dark:hover:text-slate-200" href="#">Contact Support</a>
         </div>
       </div>
     </div>

@@ -1,6 +1,18 @@
 import React from 'react';
+import { useDispatch } from 'react-redux';
+import { useNavigate, Link } from 'react-router-dom';
+import { login } from '../store/slices/authSlice';
 
 export default function SignUp() {
+    const dispatch = useDispatch();
+    const navigate = useNavigate();
+
+    const handleSubmit = (e) => {
+        e.preventDefault();
+        dispatch(login());
+        navigate('/dashboard');
+    };
+
   return (
     <div className="flex min-h-screen flex-col lg:flex-row font-display bg-background-light dark:bg-background-dark text-slate-900 dark:text-slate-100">
       {/* Left Side: Visual/Inspiration */}
@@ -8,12 +20,12 @@ export default function SignUp() {
         <div className="absolute inset-0 bg-cover bg-center" data-alt="Modern luxury villa with a pool at sunset" style={{ backgroundImage: "url('https://lh3.googleusercontent.com/aida-public/AB6AXuAIqjqBCiY1ZwaP1Iko5YUGto2D_jGxxnEVRkvSV8qa0XG5MSe7ORqmmKTYOmuRf78GURjMP7sSfXJgk-O32Iy8Na4mNYwpPbdzMNqg_3TiTVI4CG4UZW8baCStF0kHKrfNEjtZo--Yj94A40DmPGwNUOBcklxQGZb_c-4KB-t3eE-5lXQyl_t5v9ar3ZehWReFWsmAXS0dJL3l7n3voz9AFU4-EuupIHNxWETR-8AKBIW4Tfsa-YNwz-X5vJ7E_kXmSLmgaupk9NM')" }} />
         <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-transparent" />
         <div className="relative flex h-full w-full flex-col justify-between p-12 text-white">
-          <div className="flex items-center gap-3">
+          <Link to="/" className="flex items-center gap-3">
             <div className="bg-primary p-2 rounded-lg">
               <span className="material-symbols-outlined text-white">domain</span>
             </div>
             <span className="text-2xl font-bold tracking-tight">EstateHub</span>
-          </div>
+          </Link>
           <div className="max-w-xl">
             <h1 className="text-5xl font-black leading-tight mb-6">Start your journey to a new home today.</h1>
             <p className="text-lg text-slate-200">Join over 50,000+ users who found their perfect living space through our exclusive listings and verified agents.</p>
@@ -32,17 +44,17 @@ export default function SignUp() {
       <div className="flex w-full flex-col items-center justify-center p-8 lg:w-1/2 xl:w-5/12 bg-white dark:bg-slate-900">
         <div className="w-full max-w-md space-y-8">
           {/* Mobile Logo */}
-          <div className="flex items-center gap-2 lg:hidden mb-8">
+          <Link to="/" className="flex items-center gap-2 lg:hidden mb-8">
             <div className="bg-primary p-1.5 rounded-lg">
               <span className="material-symbols-outlined text-white text-xl">domain</span>
             </div>
             <span className="text-xl font-bold tracking-tight dark:text-white">EstateHub</span>
-          </div>
+          </Link>
           <div className="space-y-2">
             <h2 className="text-3xl font-bold tracking-tight text-slate-900 dark:text-white">Create an account</h2>
             <p className="text-slate-500 dark:text-slate-400">Join the community and find your next property.</p>
           </div>
-          <form className="mt-8 space-y-6">
+          <form className="mt-8 space-y-6" onSubmit={handleSubmit}>
             <div className="space-y-4">
               {/* Full Name */}
               <div className="grid gap-2">
@@ -82,7 +94,7 @@ export default function SignUp() {
             </div>
             {/* Terms & Conditions */}
             <div className="flex items-center space-x-2">
-              <input className="h-4 w-4 rounded border-slate-300 text-primary focus:ring-primary dark:border-slate-700 dark:bg-slate-800" id="terms" type="checkbox" />
+              <input className="h-4 w-4 rounded border-slate-300 text-primary focus:ring-primary dark:border-slate-700 dark:bg-slate-800" id="terms" type="checkbox" required />
               <label className="text-sm text-slate-600 dark:text-slate-400" htmlFor="terms">
                 I agree to the <a className="text-primary hover:underline font-medium" href="#">Terms of Service</a> and <a className="text-primary hover:underline font-medium" href="#">Privacy Policy</a>
               </label>
@@ -119,12 +131,13 @@ export default function SignUp() {
           <div className="text-center">
             <p className="text-sm text-slate-600 dark:text-slate-400">
               Already have an account?
-              <a className="font-bold text-primary hover:underline ml-1" href="#">Log in</a>
+              <Link to="/login" className="font-bold text-primary hover:underline ml-1">Log in</Link>
             </p>
           </div>
         </div>
         {/* Footer for Desktop */}
-        <div className="mt-auto pt-8 text-center text-xs text-slate-400 dark:text-slate-500">
+        <div className="mt-auto pt-8 text-center text-xs text-slate-400 dark:text-slate-500 flex gap-4">
+            <Link to="/" className="hover:text-slate-600 dark:hover:text-slate-300">Home</Link>
           <p>© 2024 EstateHub Inc. All rights reserved.</p>
         </div>
       </div>

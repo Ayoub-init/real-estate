@@ -61,7 +61,7 @@ export default function BrowseCities() {
         {/* Cities Grid */}
         <div className="grid grid-cols-1 gap-6 sm:grid-cols-2 lg:grid-cols-4">
           {/* City Card: Paris */}
-          <a className="group relative overflow-hidden rounded-xl bg-slate-100 transition-all hover:-translate-y-1 hover:shadow-2xl dark:bg-slate-800" href="#">
+          <a className="group relative overflow-hidden rounded-xl bg-slate-100 transition-all hover:-translate-y-1 hover:shadow-2xl dark:bg-slate-800" href="#" style={{ animation: `fadeIn 0.5s ease-out ${0 * 0.1}s both` }}>
             <div className="aspect-[4/5] w-full overflow-hidden">
               <div className="h-full w-full bg-cover bg-center transition-transform duration-500 group-hover:scale-110" data-alt="Eiffel Tower standing tall in Paris landscape" style={{ backgroundImage: "linear-gradient(to top, rgba(0,0,0,0.8) 0%, rgba(0,0,0,0.2) 40%, transparent 100%), url('https://lh3.googleusercontent.com/aida-public/AB6AXuDk_j_H60al4guOYAJIPe1ZdJiRxUgi1B9nXpQudrTTa5m-8KyEzfFEudCZ_nFH84hTcUrEM2p8oLwDkMzKuaHtEkl4caL2EcztDM84T5e2JnHLRpOUZv2Iaspxpa5j0nvpx-dHjzWSeyNdOUif7ch514bKh2wOK-KuqsSS8lM2UVafQphP4A711AlLOzBaKW4iR4jcqCmSKefWr777OS8MpL7ASxJGOukS0243aFqDsujM5DK7cIbxtanwnT5b5V5dVduPfOlKqlM')" }}></div>
             </div>
@@ -77,7 +77,7 @@ export default function BrowseCities() {
             </div>
           </a>
           {/* City Card: Lyon */}
-          <a className="group relative overflow-hidden rounded-xl bg-slate-100 transition-all hover:-translate-y-1 hover:shadow-2xl dark:bg-slate-800" href="#">
+          <a className="group relative overflow-hidden rounded-xl bg-slate-100 transition-all hover:-translate-y-1 hover:shadow-2xl dark:bg-slate-800" href="#" style={{ animation: `fadeIn 0.5s ease-out ${1 * 0.1}s both` }}>
             <div className="aspect-[4/5] w-full overflow-hidden">
               <div className="h-full w-full bg-cover bg-center transition-transform duration-500 group-hover:scale-110" data-alt="Lyon city view with historic buildings and river" style={{ backgroundImage: "linear-gradient(to top, rgba(0,0,0,0.8) 0%, rgba(0,0,0,0.2) 40%, transparent 100%), url('https://lh3.googleusercontent.com/aida-public/AB6AXuBZh7VFThPrZh9wZLRO3EtQ5TH2w__dOV3cBFqv9dU31hVjHpxXOKrsbzsBNkArb5s4JE-jTX0j_kGsZ0G3g5tTnAN9n3PnubKOwr_uK6yi-OpUq89l_JiEYyeL6XeBSlLPA_92k_D_RikeoxnColpqctmvM-Uxvcv1X2yksQasns-2ib1ST5EkWEojY5TkaZgpPtv-3MuPUdi7agFYK906F8yni26KVzy3joaEBFjZxI-8AuKir22Z9APjn49ZYvvQtcoeXoLAe1w')" }}></div>
             </div>
@@ -90,7 +90,7 @@ export default function BrowseCities() {
             </div>
           </a>
           {/* City Card: Marseille */}
-          <a className="group relative overflow-hidden rounded-xl bg-slate-100 transition-all hover:-translate-y-1 hover:shadow-2xl dark:bg-slate-800" href="#">
+          <a className="group relative overflow-hidden rounded-xl bg-slate-100 transition-all hover:-translate-y-1 hover:shadow-2xl dark:bg-slate-800" href="#" style={{ animation: `fadeIn 0.5s ease-out ${2 * 0.1}s both` }}>
             <div className="aspect-[4/5] w-full overflow-hidden">
               <div className="h-full w-full bg-cover bg-center transition-transform duration-500 group-hover:scale-110" data-alt="Marseille Old Port with many boats and blue sea" style={{ backgroundImage: "linear-gradient(to top, rgba(0,0,0,0.8) 0%, rgba(0,0,0,0.2) 40%, transparent 100%), url('https://lh3.googleusercontent.com/aida-public/AB6AXuCrIKYm3aHSjaJNwhiidbz9drE7MbAl5FHOCKucps2IdN8N-ZCXzKzeuU86f12YY7F_KU25xmSC2vgI37yZTM0Fzod3-sFxeDsjMCu5H5U1GABRKsKx2laMNFvxF768-umuoZX1Wey4seXyO9VgsYGh9FBVqVWOmtAGZ5ytCYHNbQ8vfEWLJ0vfvSejS79iFzNRbDuOqhflFmiSSQS8Q7IwqhhgDzwgmhUadAHlvvdnfaWWPu53hWvaOUDmh3RRl2x17R55xscPZQQ')" }}></div>
             </div>
@@ -103,7 +103,7 @@ export default function BrowseCities() {
             </div>
           </a>
           {/* City Card: Bordeaux */}
-          <a className="group relative overflow-hidden rounded-xl bg-slate-100 transition-all hover:-translate-y-1 hover:shadow-2xl dark:bg-slate-800" href="#">
+          <a className="group relative overflow-hidden rounded-xl bg-slate-100 transition-all hover:-translate-y-1 hover:shadow-2xl dark:bg-slate-800" href="#" style={{ animation: `fadeIn 0.5s ease-out ${3 * 0.1}s both` }}>
             <div className="aspect-[4/5] w-full overflow-hidden">
               <div className="h-full w-full bg-cover bg-center transition-transform duration-500 group-hover:scale-110" data-alt="Bordeaux city square with beautiful architecture" style={{ backgroundImage: "linear-gradient(to top, rgba(0,0,0,0.8) 0%, rgba(0,0,0,0.2) 40%, transparent 100%), url('https://lh3.googleusercontent.com/aida-public/AB6AXuDGl5SRiF4nJrSAz-mhAHVDNjOzEKv1kjGpJOLwN4qt9SFj0MTaBNVg-27EMgp14hrkYm3UuxJRrlX_bRXiO6Qdtq7mRRsYDDAr9YK2HOzyqmJEK329OOmSZw14_1PGApoxXorBqrKUXp2qU_duth-FcO_uxIgkz7bXir_6eKm2DakiZGcqFiM6jmX_JCTw77sSuQ3v7ZKc7dMObM6xB1P9HSJq3NfhfkhKwqkp2oqt29bzSKI03op6HL5W1BRz3piag8g4T1uQ0Dw')" }}></div>
             </div>
@@ -116,7 +116,7 @@ export default function BrowseCities() {
             </div>
           </a>
           {/* City Card: Nice */}
-          <a className="group relative overflow-hidden rounded-xl bg-slate-100 transition-all hover:-translate-y-1 hover:shadow-2xl dark:bg-slate-800" href="#">
+          <a className="group relative overflow-hidden rounded-xl bg-slate-100 transition-all hover:-translate-y-1 hover:shadow-2xl dark:bg-slate-800" href="#" style={{ animation: `fadeIn 0.5s ease-out ${4 * 0.1}s both` }}>
             <div className="aspect-[4/5] w-full overflow-hidden">
               <div className="h-full w-full bg-cover bg-center transition-transform duration-500 group-hover:scale-110" data-alt="Nice coastline with Promenade des Anglais" style={{ backgroundImage: "linear-gradient(to top, rgba(0,0,0,0.8) 0%, rgba(0,0,0,0.2) 40%, transparent 100%), url('https://lh3.googleusercontent.com/aida-public/AB6AXuALAgWN5aZdv5Z2tcJDgNkI7-q9eEN_7P0IUMgT-VvWrmzVuVJOoIAiJqLkoHKzIrx85P66iQDRkWJVXRMK5WQM6iyJnUT_NIAxUOl6zn2-YHpJfKgg3zC_Mc0JZwN9FIirH3p8lh8h8qaQrXnGtu7vRPfwXpwsaas4xUiDri-WpAk77OY4TXuJi5UtWLAw7ooIyIzZC24tRri6L1U0phWnfyComhV1bW4OYDgimOBTW2dvmqh9KdW0bF4npwjEtHcdCz0DtbiZvYE')" }}></div>
             </div>
@@ -129,7 +129,7 @@ export default function BrowseCities() {
             </div>
           </a>
           {/* City Card: Toulouse */}
-          <a className="group relative overflow-hidden rounded-xl bg-slate-100 transition-all hover:-translate-y-1 hover:shadow-2xl dark:bg-slate-800" href="#">
+          <a className="group relative overflow-hidden rounded-xl bg-slate-100 transition-all hover:-translate-y-1 hover:shadow-2xl dark:bg-slate-800" href="#" style={{ animation: `fadeIn 0.5s ease-out ${5 * 0.1}s both` }}>
             <div className="aspect-[4/5] w-full overflow-hidden">
               <div className="h-full w-full bg-cover bg-center transition-transform duration-500 group-hover:scale-110" data-alt="Toulouse pink city architecture and square" style={{ backgroundImage: "linear-gradient(to top, rgba(0,0,0,0.8) 0%, rgba(0,0,0,0.2) 40%, transparent 100%), url('https://lh3.googleusercontent.com/aida-public/AB6AXuBGEZ5_7IABfP037xg4Q04ilsFgDdeSV2vtSL0xp47qSjFi4WHhrErzziVWms7FVgaGbagThhMn_J-MqmCIdAFU_7QQpHc7AX-WFSn0egiPOZzTa-BfsTZ2r8feLWnxJR8R3mls9P4lux0P-Uhu-6e5tK6k3nyP15oFCatSuT9CTfp4aMXvSauie4FLEfMTCC7gNWs7t1PLkGrk-eSfzWGSBUYZmhqW1o5l3LhgOLrdGwzq6-DKdl9eM_ZPdLGzeYmi3tHsPw4o_F4')" }}></div>
             </div>
@@ -142,7 +142,7 @@ export default function BrowseCities() {
             </div>
           </a>
           {/* City Card: Lille */}
-          <a className="group relative overflow-hidden rounded-xl bg-slate-100 transition-all hover:-translate-y-1 hover:shadow-2xl dark:bg-slate-800" href="#">
+          <a className="group relative overflow-hidden rounded-xl bg-slate-100 transition-all hover:-translate-y-1 hover:shadow-2xl dark:bg-slate-800" href="#" style={{ animation: `fadeIn 0.5s ease-out ${6 * 0.1}s both` }}>
             <div className="aspect-[4/5] w-full overflow-hidden">
               <div className="h-full w-full bg-cover bg-center transition-transform duration-500 group-hover:scale-110" data-alt="Lille Grand Place with traditional Flemish buildings" style={{ backgroundImage: "linear-gradient(to top, rgba(0,0,0,0.8) 0%, rgba(0,0,0,0.2) 40%, transparent 100%), url('https://lh3.googleusercontent.com/aida-public/AB6AXuDIq80QPVYl6bw5n5dMzZlA_CGOQds_2QjmlLXfdUh2zdsUPLzeT7j6ejyhZsgi6S46poILFQGAM_Ay0uQVY_icQmHwelByT7MKVWSaYnvoYgCDpMXiTUvBfNnX1wH4kEr_UkyPrqbM6yHFDAb6w0QUGwvM4ErJ1pCogJvn3lWDqm0arEFVR387LOgSHG3Cbk4hg1j_3e1ufyqh7liglIoaIAzkgHATzaFOZWKssr8QJDDESB4I_RyH6nVuJ-6QgzKz8SyUDYn3eWk')" }}></div>
             </div>
@@ -155,7 +155,7 @@ export default function BrowseCities() {
             </div>
           </a>
           {/* City Card: Strasbourg */}
-          <a className="group relative overflow-hidden rounded-xl bg-slate-100 transition-all hover:-translate-y-1 hover:shadow-2xl dark:bg-slate-800" href="#">
+          <a className="group relative overflow-hidden rounded-xl bg-slate-100 transition-all hover:-translate-y-1 hover:shadow-2xl dark:bg-slate-800" href="#" style={{ animation: `fadeIn 0.5s ease-out ${7 * 0.1}s both` }}>
             <div className="aspect-[4/5] w-full overflow-hidden">
               <div className="h-full w-full bg-cover bg-center transition-transform duration-500 group-hover:scale-110" data-alt="Strasbourg half-timbered houses by the river" style={{ backgroundImage: "linear-gradient(to top, rgba(0,0,0,0.8) 0%, rgba(0,0,0,0.2) 40%, transparent 100%), url('https://lh3.googleusercontent.com/aida-public/AB6AXuBMRH2EEiVYBbcA8vHWBnKfEq9LKl-DKqi6eux2TuR07ME3_Jzp8mnhM-fUsJTwb5hQv1PRcKxK_E8pUXQ67Qk1j44hdqOUxMPyydA56emKm_veAXhos3qP7RUNlCTnzfbfaxxiNJPjMIaDSuzGqgpHirkt8iOBlCMLkLxU5JNcKglksiDYOdW7SkSbVU8j_AwABC-6Gs_9thD-EvsQj4TsxF6MMdcfHddKX1o4Hcl233awG998sY3a4-gNfSYP7ELX3yqjw_v744s')" }}></div>
             </div>

@@ -1,4 +1,5 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 
 export default function UserDashboard() {
   return (
@@ -7,12 +8,12 @@ export default function UserDashboard() {
         {/* Navigation Header */}
         <header className="flex items-center justify-between whitespace-nowrap border-b border-solid border-slate-200 dark:border-slate-800 bg-white dark:bg-slate-900 px-6 lg:px-10 py-3 sticky top-0 z-50">
           <div className="flex items-center gap-8">
-            <div className="flex items-center gap-2 text-primary">
+            <Link to="/" className="flex items-center gap-2 text-primary">
               <div className="size-8 flex items-center justify-center bg-primary/10 rounded-lg text-primary">
                 <span className="material-symbols-outlined">domain</span>
               </div>
               <h2 className="text-slate-900 dark:text-white text-lg font-bold leading-tight tracking-tight">EstateFlow</h2>
-            </div>
+            </Link>
             <nav className="hidden md:flex items-center gap-6">
               <a className="text-primary text-sm font-semibold leading-normal border-b-2 border-primary pb-1" href="#">Dashboard</a>
               <a className="text-slate-600 dark:text-slate-400 text-sm font-medium leading-normal hover:text-primary transition-colors" href="#">Listings</a>
@@ -43,14 +44,14 @@ export default function UserDashboard() {
                 <span className="material-symbols-outlined">dashboard</span>
                 <span className="text-sm font-semibold">Dashboard</span>
               </div>
-              <div className="flex items-center gap-3 px-3 py-2 rounded-lg text-slate-600 dark:text-slate-400 hover:bg-slate-100 dark:hover:bg-slate-800 transition-colors cursor-pointer">
+              <Link to="/my-ads" className="flex items-center gap-3 px-3 py-2 rounded-lg text-slate-600 dark:text-slate-400 hover:bg-slate-100 dark:hover:bg-slate-800 transition-colors cursor-pointer">
                 <span className="material-symbols-outlined">home</span>
                 <span className="text-sm font-medium">My Properties</span>
-              </div>
-              <div className="flex items-center gap-3 px-3 py-2 rounded-lg text-slate-600 dark:text-slate-400 hover:bg-slate-100 dark:hover:bg-slate-800 transition-colors cursor-pointer">
+              </Link>
+              <Link to="/favorites" className="flex items-center gap-3 px-3 py-2 rounded-lg text-slate-600 dark:text-slate-400 hover:bg-slate-100 dark:hover:bg-slate-800 transition-colors cursor-pointer">
                 <span className="material-symbols-outlined">favorite</span>
                 <span className="text-sm font-medium">Saved</span>
-              </div>
+              </Link>
               <div className="flex items-center gap-3 px-3 py-2 rounded-lg text-slate-600 dark:text-slate-400 hover:bg-slate-100 dark:hover:bg-slate-800 transition-colors cursor-pointer">
                 <span className="material-symbols-outlined">chat_bubble</span>
                 <span className="text-sm font-medium">Messages</span>
@@ -59,14 +60,14 @@ export default function UserDashboard() {
             </div>
             <hr className="border-slate-200 dark:border-slate-800" />
             <div className="flex flex-col gap-1">
-              <div className="flex items-center gap-3 px-3 py-2 rounded-lg text-slate-600 dark:text-slate-400 hover:bg-slate-100 dark:hover:bg-slate-800 transition-colors cursor-pointer">
+              <Link to="/profile" className="flex items-center gap-3 px-3 py-2 rounded-lg text-slate-600 dark:text-slate-400 hover:bg-slate-100 dark:hover:bg-slate-800 transition-colors cursor-pointer">
                 <span className="material-symbols-outlined">settings</span>
                 <span className="text-sm font-medium">Settings</span>
-              </div>
-              <div className="flex items-center gap-3 px-3 py-2 rounded-lg text-slate-600 dark:text-slate-400 hover:bg-slate-100 dark:hover:bg-slate-800 transition-colors cursor-pointer text-red-500">
+              </Link>
+              <Link to="/login" className="flex items-center gap-3 px-3 py-2 rounded-lg text-slate-600 dark:text-slate-400 hover:bg-slate-100 dark:hover:bg-slate-800 transition-colors cursor-pointer text-red-500">
                 <span className="material-symbols-outlined">logout</span>
                 <span className="text-sm font-medium">Sign Out</span>
-              </div>
+              </Link>
             </div>
             <div className="mt-auto p-4 bg-primary/5 rounded-xl border border-primary/10">
               <p className="text-xs font-bold text-primary uppercase tracking-widest mb-2">Pro Plan</p>
@@ -138,7 +139,7 @@ export default function UserDashboard() {
                     <h3 className="text-xl font-bold text-slate-900 dark:text-white mb-4">Recommended Listings</h3>
                     <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
                       {/* Property Card 1 */}
-                      <div className="bg-white dark:bg-slate-900 rounded-xl overflow-hidden border border-slate-200 dark:border-slate-800 shadow-sm group">
+              <Link to="/property/prop-5" className="bg-white dark:bg-slate-900 rounded-xl overflow-hidden border border-slate-200 dark:border-slate-800 shadow-sm group block">
                         <div className="h-48 w-full bg-slate-200 dark:bg-slate-800 relative overflow-hidden">
                           <div className="absolute inset-0 bg-cover bg-center transition-transform duration-500 group-hover:scale-110" data-alt="Modern luxury villa with a pool" style={{ backgroundImage: "url('https://lh3.googleusercontent.com/aida-public/AB6AXuAK_AWOpKFR4Kn30B55WbAOCD565Tejvmem6Igk2Fo5mMKzQSxFM0ZDZZunoNuuqad4500txbnaLDIOciEc3kQ8SD6juvWMmF1brlmG5p1SNCV4D1VanFfilaZJ_q8-OlkNPwt85Z-12IdN1mbbLkY26CQhzgfotBgN4j9mRNaEa89HWBYrU6SsorPEPn999rrNE23MIuxSKsUqgNysva2EztlM1WWyyPh-btt4EZQoFotbOZX8HZdpjMLSZviQTxI0VpeQLep6Nxc')" }}></div>
                           <div className="absolute top-3 left-3 bg-white dark:bg-slate-900 px-2 py-1 rounded text-xs font-bold text-primary uppercase tracking-wide">Featured</div>
@@ -165,9 +166,9 @@ export default function UserDashboard() {
                             <span className="text-xs font-medium text-slate-400">2h ago</span>
                           </div>
                         </div>
-                      </div>
+              </Link>
                       {/* Property Card 2 */}
-                      <div className="bg-white dark:bg-slate-900 rounded-xl overflow-hidden border border-slate-200 dark:border-slate-800 shadow-sm group">
+              <Link to="/property/prop-6" className="bg-white dark:bg-slate-900 rounded-xl overflow-hidden border border-slate-200 dark:border-slate-800 shadow-sm group block">
                         <div className="h-48 w-full bg-slate-200 dark:bg-slate-800 relative overflow-hidden">
                           <div className="absolute inset-0 bg-cover bg-center transition-transform duration-500 group-hover:scale-110" data-alt="Traditional family home with large garden" style={{ backgroundImage: "url('https://lh3.googleusercontent.com/aida-public/AB6AXuA2nkr5D_xTOIYP9UwIcVksKceUJYuk0E_zb4tzQSlWYvmUpfdgOvB5KhsRuSZ2bHHIu6vLHDKCgtCajsOsAK5-oZ8s4CfhziShXqZkNPkqnCVQLU3_Wf6L3xm6EUUn8jN04tD7I0BzKX-YjvFFgvbg7stbKmWunBKfYgDV-1JIPORu8Du71lxmp9yBSj8SXyctiRYqwiLa2oMiT4nY8yqmcSUwHZsbCycXQEJ8OnB-xW7OKviEjKPzRdTMN3-8_tFo88VSlAqLmdk')" }}></div>
                           <div className="absolute top-3 left-3 bg-white dark:bg-slate-900 px-2 py-1 rounded text-xs font-bold text-primary uppercase tracking-wide">New</div>
@@ -194,7 +195,7 @@ export default function UserDashboard() {
                             <span className="text-xs font-medium text-slate-400">5h ago</span>
                           </div>
                         </div>
-                      </div>
+              </Link>
                     </div>
                   </div>
                 </div>

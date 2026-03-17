@@ -54,24 +54,31 @@ function IndexPage() {
   );
 }
 
+import Layout from './components/layout/Layout';
+
 export default function App() {
   return (
     <Router>
       <Routes>
-        <Route path="/" element={<IndexPage />} />
-        <Route path="/screen-1" element={<MyAds />} />
-        <Route path="/screen-2" element={<Home />} />
-        <Route path="/screen-3" element={<SearchResults />} />
-        <Route path="/screen-4" element={<PropertyDetails />} />
-        <Route path="/screen-5" element={<Login />} />
-        <Route path="/screen-6" element={<SignUp />} />
-        <Route path="/screen-7" element={<UserProfile />} />
-        <Route path="/screen-8" element={<AdminOverview />} />
-        <Route path="/screen-9" element={<UserDashboard />} />
-        <Route path="/screen-10" element={<PostManagement />} />
-        <Route path="/screen-11" element={<MyFavorites />} />
-        <Route path="/screen-12" element={<BrowseCities />} />
-        <Route path="/screen-13" element={<PropertyCategories />} />
+        <Route element={<Layout />}>
+            <Route path="/" element={<Home />} />
+            <Route path="/search" element={<SearchResults />} />
+            <Route path="/property/:id" element={<PropertyDetails />} />
+            <Route path="/categories" element={<PropertyCategories />} />
+            <Route path="/cities" element={<BrowseCities />} />
+            <Route path="/favorites" element={<MyFavorites />} />
+            <Route path="/profile" element={<UserProfile />} />
+
+            <Route path="/login" element={<Login />} />
+            <Route path="/register" element={<SignUp />} />
+
+            <Route path="/dashboard" element={<UserDashboard />} />
+            <Route path="/admin" element={<AdminOverview />} />
+            <Route path="/my-ads" element={<MyAds />} />
+            <Route path="/manage/:id" element={<PostManagement />} />
+
+            <Route path="/index" element={<IndexPage />} />
+        </Route>
       </Routes>
     </Router>
   );
