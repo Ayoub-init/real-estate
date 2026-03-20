@@ -39,8 +39,8 @@ function IndexPage() {
         <p className="text-slate-600 mb-8">Click on a link below to view the implemented React component for each screen.</p>
         <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
           {screens.map((screen, index) => (
-            <Link 
-              key={index} 
+            <Link
+              key={index}
               to={screen.path}
               className="flex items-center justify-between p-4 rounded-lg border border-slate-200 hover:border-primary hover:shadow-md transition-all group"
             >
@@ -78,7 +78,7 @@ export default function App() {
             <Route path="/admin" element={<AdminOverview />} />
             <Route path="/my-ads" element={<MyAds />} />
             <Route path="/manage/:id" element={<PostManagement />} />
-            
+
             <Route path="/index" element={<IndexPage />} />
         </Route>
       </Routes>

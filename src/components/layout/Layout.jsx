@@ -11,7 +11,7 @@ const pageVariants = {
 
 export default function Layout() {
     const location = useLocation();
-    
+
     // Pages that have their own custom layouts without the main header/footer
     const isAuthPage = location.pathname === '/login' || location.pathname === '/register';
     const isDashboardPage = location.pathname.includes('/dashboard') || location.pathname.includes('/admin') || location.pathname.includes('/my-ads') || location.pathname.includes('/manage') || location.pathname.includes('/profile');
